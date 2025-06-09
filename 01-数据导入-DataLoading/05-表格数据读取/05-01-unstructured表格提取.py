@@ -18,17 +18,35 @@
 - 错误: "TesseractNotFoundError: tesseract is not installed or it's not in your PATH"
   解决: 安装 tesseract-ocr
 
+- 错误: "No such file or directory" 或 中文路径显示为编码
+  解决: 确保在项目根目录运行脚本，或使用绝对路径
+
 【验证安装】
 可以使用以下命令验证安装是否成功：
 - pdfinfo -v
 - tesseract --version
+
+【VSCode运行注意事项】
+- 确保VSCode终端工作目录在项目根目录
+- 如果遇到中文路径编码问题，建议在VSCode终端中运行脚本
+- 推荐在VSCode中设置Python解释器为正确的虚拟环境
 
 【Python依赖】
 91-环境-Environment/requirements_llamaindex_Ubuntu-with-CPU.txt
 
 """
 
+import os
+import sys
+from pathlib import Path
 from unstructured.partition.pdf import partition_pdf
+
+# 确保工作目录正确
+# 获取脚本所在目录的父目录（项目根目录）
+script_dir = Path(__file__).parent.parent.parent
+if script_dir.exists():
+    os.chdir(script_dir)
+    print(f"工作目录设置为: {os.getcwd()}")
 
 # 导入 LlamaIndex 相关模块
 from llama_index.core import Settings
@@ -40,7 +58,19 @@ Settings.llm = OpenAI(model="gpt-3.5-turbo")
 Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small")
 
 # 解析 PDF 结构，提取文本和表格
-file_path = "90-文档-Data/复杂PDF/billionaires_page-1-5.pdf"  # 修改为你的文件路径
+# 使用相对路径，确保从项目根目录开始
+file_path = "90-文档-Data/复杂PDF/billionaires_page-1-5.pdf"
+
+# 检查文件是否存在
+if not os.path.exists(file_path):
+    print(f"错误: 文件不存在 - {file_path}")
+    print(f"当前工作目录: {os.getcwd()}")
+    print("请确保:")
+    print("1. 在项目根目录运行脚本")
+    print("2. PDF文件路径正确")
+    sys.exit(1)
+
+print(f"正在处理文件: {file_path}")
 
 elements = partition_pdf(
     file_path,
