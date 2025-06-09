@@ -1,3 +1,5 @@
+# 告诉 pip 在标准 PyPI 之外，也要去这个 URL 寻找包。这行通常放在文件顶部。
+--extra-index-url https://download.pytorch.org/whl/cpu
 aiofiles==24.1.0
 aiohappyeyeballs==2.4.4
 aiohttp==3.11.11
@@ -222,7 +224,7 @@ tomli==2.2.1
 # 带有 +cpu 后缀的版本通常是发布在PyTorch自己的软件包索引上的，而不是 PyPI 官方源。
 # pip3 install torch==2.6.0 torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
 torch==2.6.0+cpu
-torchvision==0.21.0
+torchvision==0.21.0+cpu
 tornado==6.4.2
 tqdm==4.67.1
 traitlets==5.14.3

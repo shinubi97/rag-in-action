@@ -1,3 +1,33 @@
+"""
+使用 unstructured 库进行 PDF 表格提取
+
+【系统依赖安装】
+运行此脚本前，需要安装以下系统依赖：
+
+1. 安装 poppler-utils (用于PDF处理):
+   sudo apt update
+   sudo apt install -y poppler-utils
+
+2. 安装 Tesseract OCR (用于文字识别):
+   sudo apt install -y tesseract-ocr tesseract-ocr-chi-sim tesseract-ocr-eng
+
+【常见错误解决方案】
+- 错误: "PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?"
+  解决: 安装 poppler-utils
+
+- 错误: "TesseractNotFoundError: tesseract is not installed or it's not in your PATH"
+  解决: 安装 tesseract-ocr
+
+【验证安装】
+可以使用以下命令验证安装是否成功：
+- pdfinfo -v
+- tesseract --version
+
+【Python依赖】
+91-环境-Environment/requirements_llamaindex_Ubuntu-with-CPU.txt
+
+"""
+
 from unstructured.partition.pdf import partition_pdf
 
 # 导入 LlamaIndex 相关模块

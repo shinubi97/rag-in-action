@@ -38,7 +38,7 @@
 ### 软件要求
 
 #### 操作系统支持
-1. Ubuntu (推荐 22.04 或更高)
+1. Ubuntu (推荐 22.04 )
    - GPU 版本：使用 `requirements_langchain_20250413(Ubuntu-with-GPU).txt`
    - CPU 版本：使用 `requirements_langchain(Ubuntu-with-CPU).txt`
 
@@ -47,12 +47,13 @@
 
 ### 框架选择
 
-1. LangChain 框架
+1. Python：3.10+
+2. LangChain 框架
    - 基础版：`requirements_langchain_简单RAG(后续模块还要安装其它包).txt`
    - 完整版（GPU）：`requirements_langchain_20250413(Ubuntu-with-GPU).txt`
    - 完整版（CPU）：`requirements_langchain_无GPU版(Mac,Win).txt`
 
-2. LlamaIndex 框架
+3. LlamaIndex 框架
    - 基础版：`requirements_llamaindex_简单RAG(后续模块还要安装其它包).txt`
    - 完整版（GPU）：`requirements_llamaindex_20250413(Ubuntu-with-GPU).txt`
    - 完整版（CPU）：`requirements_llamaindex_无GPU版(Mac,Win).txt`
