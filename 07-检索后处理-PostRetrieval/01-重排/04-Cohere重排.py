@@ -5,6 +5,13 @@ from langchain_community.retrievers import BM25Retriever
 from dotenv import load_dotenv
 load_dotenv()
 
+# 获取Cohere API key
+# 地址：https://dashboard.cohere.com/api-keys
+# 如果env文件没有设置CO_API_KEY，也可以通过以下方式
+import os
+api_key = 'XXXX'
+os.environ['CO_API_KEY'] = api_key
+
 # 准备示例文档
 documents = [
     Document(
@@ -26,7 +33,7 @@ retriever = BM25Retriever.from_documents(documents)
 retriever.k = 3  # 设置返回前3个结果
 
 # 设置Cohere重排序器
-reranker = CohereRerank(model="rerank-multilingual-v2.0")
+reranker = CohereRerank(model="rerank-multilingual-v3.0")
 
 # 执行查询和重排
 query = "山西有哪些著名的旅游景点？"

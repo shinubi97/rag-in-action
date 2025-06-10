@@ -5,7 +5,13 @@ from langchain_core.documents import Document
 from langchain_community.retrievers import BM25Retriever
 from dotenv import load_dotenv
 load_dotenv()
-# 准备示例文档
+
+# 获取Cohere API key
+# 地址：https://dashboard.cohere.com/api-keys
+# 如果env文件没有设置CO_API_KEY，也可以通过以下方式
+import os
+api_key = 'fjpfXKAVKZ7cNPkWhjtmcBE6tzuAUFtejix61aan'
+os.environ['CO_API_KEY'] = api_key
 documents = [
     Document(
         page_content="五台山是中国四大佛教名山之一，以文殊菩萨道场闻名。",
@@ -24,7 +30,8 @@ documents = [
 retriever = BM25Retriever.from_documents(documents)
 retriever.k = 3  # 设置返回前3个结果
 # 设置Cohere重排序器
-compressor = CohereRerank(model="rerank-multilingual-v2.0")
+# 模型地址: https://huggingface.co/Cohere/rerank-multilingual-v3.0
+compressor = CohereRerank(model="rerank-multilingual-v3.0")
 # 创建ContextualCompressionRetriever
 compression_retriever = ContextualCompressionRetriever(
     base_compressor=compressor,
