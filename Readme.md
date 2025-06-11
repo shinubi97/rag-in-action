@@ -10,17 +10,19 @@
 
 项目采用模块化设计，每个模块负责 RAG 系统的不同方面：
 
-- `00-简单RAG-SimpleRAG`: 基础 RAG 系统实现
-- `01-数据导入-DataLoading`: 数据加载和预处理
-- `02-文本切块-DocChunking`: 文档分块策略
-- `03-向量嵌入-Embedding`: 文本向量化
-- `04-向量存储-VectorDB`: 向量数据库操作
-- `05-检索前处理-PreRetrieval`: 检索优化
-- `06-索引优化-Indexing`: 索引构建和优化
-- `07-检索后处理-PostRetrieval`: 检索结果优化
-- `08-响应生成-Generation`: 答案生成
-- `09-系统评估-Evaluation`: 系统性能评估
-- `10-高级RAG-AdvanceRAG`: 高级 RAG 技术实现
+| 模块 | 功能 | 技术栈 | 依赖 |
+|------|------|--------|------|
+| `00-简单RAG-SimpleRAG` | 基础 RAG 系统实现 | LangChain/LlamaIndex | 基础环境 |
+| `01-数据导入-DataLoading` | 数据加载和预处理 | pandas, PyPDF2 | 文档解析库 |
+| `02-文本切块-DocChunking` | 文档分块策略 | LangChain Splitters | NLP 工具 |
+| `03-向量嵌入-Embedding` | 文本向量化 | HuggingFace, BGE | GPU 支持(可选) |
+| `04-向量存储-VectorDB` | 向量数据库操作 | Milvus, Chroma | 向量数据库 |
+| `05-检索前处理-PreRetrieval` | 检索优化 | Query Expansion | NLP 工具 |
+| `06-索引优化-Indexing` | 索引构建和优化 | 层次索引, 关键词索引 | 搜索引擎 |
+| `07-检索后处理-PostRetrieval` | 检索结果优化 | 重排序, 过滤 | ML 模型 |
+| `08-响应生成-Generation` | 答案生成 | LLM 集成 | GPU 推荐 |
+| `09-系统评估-Evaluation` | 系统性能评估 | RAGAS, TruLens | 评估框架 |
+| `10-高级RAG-AdvanceRAG` | 高级 RAG 技术实现 | Graph RAG, Multi-Agent | 高级框架 |
 
 ## 环境要求
 
@@ -38,12 +40,14 @@
 ### 软件要求
 
 #### 操作系统支持
-1. Ubuntu (推荐 22.04 )
-   - GPU 版本：使用 `requirements_langchain_20250413(Ubuntu-with-GPU).txt`
-   - CPU 版本：使用 `requirements_langchain(Ubuntu-with-CPU).txt`
+1. **Ubuntu **
+- 推荐使用 22.04 LTS
 
-2. MacOS/Windows
-   - 使用 `requirements_langchain_无GPU版(Mac,Win).txt`
+1. **MacOS (Intel/Apple Silicon)**
+   - Apple Silicon 可以使用 MPS 加速
+
+2. **Windows 10/11**
+   - 推荐使用 WSL2 + Ubuntu
 
 ### 框架选择
 
@@ -60,12 +64,15 @@
 
 ## 环境配置
 
-### Ubuntu (GPU 版本)
+### Ubuntu (GPU 版本+LangChain框架)
 
 ```bash
 # 创建虚拟环境
 python -m venv venv-rag-langchain
 source venv-rag-langchain/bin/activate
+## 或者使用conda
+conda create -n venv-rag-langchain python=3.10.12
+conda activate venv-rag-langchain
 
 # 安装依赖
 pip install -r 91-环境-Environment/requirements_langchain_20250413_Ubuntu-with-GPU.txt
@@ -74,24 +81,30 @@ pip install -r 91-环境-Environment/requirements_langchain_20250413_Ubuntu-with
 ### Ubuntu (CPU 版本+LangChain框架)
 
 ```bash
+# 创建虚拟环境
 python -m venv venv-rag-langchain
 source venv-rag-langchain/bin/activate
-pip install -r 91-环境-Environment/requirements_langchain_Ubuntu-with-CPU.txt
-
 ## 或者使用conda
 conda create -n venv-rag-langchain python=3.10.12
 conda activate venv-rag-langchain
+
+# 安装依赖
+pip install -r 91-环境-Environment/requirements_langchain_Ubuntu-with-CPU.txt
 ```
 
 ### MacOS/Windows(CPU 版本+LangChain框架)
-
 ```bash
+# 创建虚拟环境
 python -m venv venv-rag-langchain
 # Windows
 .\venv-rag-langchain\Scripts\activate
 # MacOS
 source venv-rag-langchain/bin/activate
+## 或者使用conda
+conda create -n venv-rag-langchain python=3.10.12
+conda activate venv-rag-langchain
 
+# 安装依赖
 pip install -r 91-环境-Environment/requirements_langchain_无GPU版_Mac-Win.txt
 ```
 
