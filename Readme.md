@@ -68,18 +68,22 @@ python -m venv venv-rag-langchain
 source venv-rag-langchain/bin/activate
 
 # 安装依赖
-pip install -r 91-环境-Environment/requirements_langchain_20250413\(Ubuntu-with-GPU\).txt
+pip install -r 91-环境-Environment/requirements_langchain_20250413_Ubuntu-with-GPU.txt
 ```
 
-### Ubuntu (CPU 版本)
+### Ubuntu (CPU 版本+LangChain框架)
 
 ```bash
 python -m venv venv-rag-langchain
 source venv-rag-langchain/bin/activate
-pip install -r 91-环境-Environment/requirements_langchain\(Ubuntu-with-CPU\).txt
+pip install -r 91-环境-Environment/requirements_langchain_Ubuntu-with-CPU.txt
+
+## 或者使用conda
+conda create -n venv-rag-langchain python=3.10.12
+conda activate venv-rag-langchain
 ```
 
-### MacOS/Windows
+### MacOS/Windows(CPU 版本+LangChain框架)
 
 ```bash
 python -m venv venv-rag-langchain
@@ -88,7 +92,7 @@ python -m venv venv-rag-langchain
 # MacOS
 source venv-rag-langchain/bin/activate
 
-pip install -r "91-环境-Environment/requirements_langchain_无GPU版(Mac,Win).txt"
+pip install -r 91-环境-Environment/requirements_langchain_无GPU版_Mac-Win.txt
 ```
 
 ## 特殊依赖说明
