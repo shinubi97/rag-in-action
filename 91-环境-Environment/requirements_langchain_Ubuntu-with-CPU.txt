@@ -193,6 +193,7 @@ pytube==15.0.0
 pytz==2025.1
 PyYAML==6.0.2
 pyzmq==26.2.1
+rank-llm==0.21.0
 rank-bm25==0.2.2
 RapidFuzz==3.12.1
 regex==2024.11.6

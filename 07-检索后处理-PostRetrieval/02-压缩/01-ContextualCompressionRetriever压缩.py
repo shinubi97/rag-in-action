@@ -9,9 +9,10 @@ load_dotenv()
 # 获取Cohere API key
 # 地址：https://dashboard.cohere.com/api-keys
 # 如果env文件没有设置CO_API_KEY，也可以通过以下方式
-import os
-api_key = 'fjpfXKAVKZ7cNPkWhjtmcBE6tzuAUFtejix61aan'
-os.environ['CO_API_KEY'] = api_key
+# import os
+# api_key = 'XXXX'
+# os.environ['CO_API_KEY'] = api_key
+
 documents = [
     Document(
         page_content="五台山是中国四大佛教名山之一，以文殊菩萨道场闻名。",

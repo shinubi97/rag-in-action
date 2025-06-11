@@ -108,6 +108,50 @@ conda activate venv-rag-langchain
 pip install -r 91-环境-Environment/requirements_langchain_无GPU版_Mac-Win.txt
 ```
 
+### Ubuntu (GPU 版本+LlamaIndex框架)
+
+```bash
+# 创建虚拟环境
+python -m venv venv-rag-llamaindex
+source venv-rag-llamaindex/bin/activate
+## 或者使用conda
+conda create -n venv-rag-llamaindex python=3.10.12
+conda activate venv-rag-lanllamaindexgchain
+
+# 安装依赖
+pip install -r 91-环境-Environment/requirements_llamaindex_20250413_Ubuntu-with-GPU.txt
+```
+
+### Ubuntu (CPU 版本+LlamaIndex框架)
+
+```bash
+# 创建虚拟环境
+python -m venv venv-rag-llamaindex
+source venv-rag-llamaindex/bin/activate
+## 或者使用conda
+conda create -n venv-rag-llamaindex python=3.10.12
+conda activate venv-rag-llamaindex
+
+# 安装依赖
+pip install -r 91-环境-Environment/requirements_llamaindex_Ubuntu-with-CPU.txt
+```
+
+### MacOS/Windows(CPU 版本+LlamaIndex框架)
+```bash
+# 创建虚拟环境
+python -m venv venv-rag-llamaindex
+# Windows
+.\venv-rag-llamaindex\Scripts\activate
+# MacOS
+source venv-rag-llamaindex/bin/activate
+## 或者使用conda
+conda create -n venv-rag-llamaindex python=3.10.12
+conda activate venv-rag-llamaindex
+
+# 安装依赖
+pip install -r 91-环境-Environment/requirements_llamaindex_无GPU版_Mac-Win.txt
+```
+
 ## 特殊依赖说明
 
 1. PDF 处理相关：
