@@ -77,3 +77,7 @@ data/
 **/RAG_LlamaIndex*/
 **/04-向量存储-VectorDB/Milvus/volumes/*
 .deepeval/.deepeval_telemetry.txt
+codebase_chunks.json
+evaluation_set.jsonl
+.contextual.db.lock
+.standard.db.lock
