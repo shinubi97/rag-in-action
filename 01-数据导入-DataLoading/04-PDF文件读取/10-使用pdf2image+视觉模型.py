@@ -20,11 +20,7 @@ def encode_image_to_base64(image_path):
 
 def call_qwen_vision_model(image_paths, question):
     """调用千问视觉模型"""
-    headers = {
-        "Authorization": f"Bearer {DASHSCOPE_API_KEY}",
-        "Content-Type": "application/json"
-    }
-    
+ 
     base64_images = []
     for image_path in image_paths:
         # 将图片编码为base64
